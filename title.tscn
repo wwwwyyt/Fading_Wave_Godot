@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=3 uid="uid://cp16f1ixlf771"]
+
+[ext_resource type="Texture2D" uid="uid://c37wy0x80bv3n" path="res://title_scene/title_sky.png" id="1_fmyyw"]
+[ext_resource type="Texture2D" uid="uid://x21o87jk6xkc" path="res://title_scene/标题文字.png" id="1_hsdwh"]
+[ext_resource type="Texture2D" uid="uid://cvmtste4ltlpr" path="res://title_scene/title_girl.png" id="2_iriux"]
+[ext_resource type="Texture2D" uid="uid://cuw77efqxde5o" path="res://title_scene/btn_texture/load_game_1.png" id="4_lcn8u"]
+[ext_resource type="Texture2D" uid="uid://cna0557qjcqb" path="res://title_scene/btn_texture/load_game_2.png" id="5_e0mu1"]
+[ext_resource type="Texture2D" uid="uid://bpotnsw1vr81p" path="res://title_scene/btn_texture/new_game_1.png" id="6_g6lvq"]
+[ext_resource type="Texture2D" uid="uid://pbhx8wyxq0b0" path="res://title_scene/btn_texture/new_game_2.png" id="7_qgylm"]
+[ext_resource type="Texture2D" uid="uid://d0c2sk3nq4jox" path="res://title_scene/btn_texture/config_1.png" id="8_26lgx"]
+[ext_resource type="Texture2D" uid="uid://drqxb5d1cjjdy" path="res://title_scene/btn_texture/config_2.png" id="9_8y1ls"]
+[ext_resource type="Texture2D" uid="uid://d3ycvx4ognmj7" path="res://title_scene/btn_texture/exit_1.png" id="10_81rp5"]
+[ext_resource type="Texture2D" uid="uid://ds0a5b6l61rg3" path="res://title_scene/btn_texture/exit_2.png" id="11_bgam0"]
+
+[sub_resource type="Animation" id="Animation_lj110"]
+resource_name = "fade_in"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Girl/CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 2),
+"transitions": PackedFloat32Array(2.73208, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackGround/Background_FadeIn:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/NewGame_Btn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.5, 2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(-500, 280), Vector2(-200, 280), Vector2(30, 280)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button/LoadGame_Btn:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1, 1.6, 2.1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(-500, 360), Vector2(-200, 360), Vector2(30, 360)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Button/Config_Btn:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2, 1.7, 2.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(-500, 440), Vector2(-200, 440), Vector2(30, 440)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Button/Exit_Btn:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 1.8, 2.3),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(-500, 520), Vector2(-200, 520), Vector2(30, 520)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmjwp"]
+_data = {
+"fade_in": SubResource("Animation_lj110")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpenGame" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wmjwp")
+}
+autoplay = "fade_in"
+
+[node name="BackGround" type="CanvasLayer" parent="."]
+
+[node name="Background_FadeIn" type="CanvasModulate" parent="BackGround"]
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TextureRect" parent="BackGround"]
+offset_right = 1200.0
+offset_bottom = 900.0
+texture = ExtResource("1_fmyyw")
+expand_mode = 1
+
+[node name="Girl" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Girl"]
+color = Color(1, 1, 1, 0)
+
+[node name="TitleText" type="TextureRect" parent="Girl"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -458.0
+offset_top = 43.0
+offset_right = -58.0
+offset_bottom = 543.0
+grow_horizontal = 0
+texture = ExtResource("1_hsdwh")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Girl_Textrue" type="TextureRect" parent="Girl"]
+offset_top = 200.0
+offset_right = 1200.0
+offset_bottom = 900.0
+texture = ExtResource("2_iriux")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Button" type="CanvasLayer" parent="."]
+
+[node name="NewGame_Btn" type="TextureButton" parent="Button"]
+offset_left = -500.0
+offset_top = 280.0
+offset_right = 520.0
+offset_bottom = 506.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_g6lvq")
+texture_hover = ExtResource("7_qgylm")
+
+[node name="LoadGame_Btn" type="TextureButton" parent="Button"]
+offset_left = -500.0
+offset_top = 360.0
+offset_right = 544.0
+offset_bottom = 586.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_lcn8u")
+texture_hover = ExtResource("5_e0mu1")
+
+[node name="Config_Btn" type="TextureButton" parent="Button"]
+offset_left = -500.0
+offset_top = 440.0
+offset_right = 544.0
+offset_bottom = 698.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("8_26lgx")
+texture_hover = ExtResource("9_8y1ls")
+
+[node name="Exit_Btn" type="TextureButton" parent="Button"]
+offset_left = -500.0
+offset_top = 520.0
+offset_right = 544.0
+offset_bottom = 778.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("10_81rp5")
+texture_hover = ExtResource("11_bgam0")
