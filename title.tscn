@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp16f1ixlf771"]
+[gd_scene load_steps=17 format=3 uid="uid://dc2ee6lbnvxvw"]
 
 [ext_resource type="Texture2D" uid="uid://c37wy0x80bv3n" path="res://title_scene/title_sky.png" id="1_fmyyw"]
 [ext_resource type="Texture2D" uid="uid://x21o87jk6xkc" path="res://title_scene/标题文字.png" id="1_hsdwh"]
@@ -12,17 +12,30 @@
 [ext_resource type="Texture2D" uid="uid://d3ycvx4ognmj7" path="res://title_scene/btn_texture/exit_1.png" id="10_81rp5"]
 [ext_resource type="Texture2D" uid="uid://ds0a5b6l61rg3" path="res://title_scene/btn_texture/exit_2.png" id="11_bgam0"]
 
+[sub_resource type="CSharpScript" id="CSharpScript_7vg62"]
+script/source = "using Godot;
+using System;
+
+public partial class title : Control
+{
+    public void onNewGameBtnPressed()
+    {
+            GetTree().ChangeSceneToFile(\"res://level_1.tscn\");
+    }
+}
+"
+
 [sub_resource type="Animation" id="Animation_lj110"]
-resource_name = "fade_in"
+resource_name = "fade_in_and_out"
 length = 2.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Girl/CanvasModulate:color")
+tracks/0/path = NodePath("Girl/CanvasModulate_girl:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.6, 2),
+"times": PackedFloat32Array(0.5, 2),
 "transitions": PackedFloat32Array(2.73208, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -30,7 +43,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackGround/Background_FadeIn:color")
+tracks/1/path = NodePath("BackGround/CanvasModulate_bg:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,10 +101,96 @@ tracks/5/keys = {
 "values": [Vector2(-500, 520), Vector2(-200, 520), Vector2(30, 520)]
 }
 
+[sub_resource type="Animation" id="Animation_4j5c4"]
+resource_name = "fade_out"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround/CanvasModulate_bg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Girl/CanvasModulate_girl:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(2, 2, 2, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button/NewGame_Btn:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(30, 280), Vector2(-200, 280), Vector2(-500, 280)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button/LoadGame_Btn:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.7, 1.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(30, 360), Vector2(-200, 360), Vector2(-500, 360)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Button/Config_Btn:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.6, 1.1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(30, 440), Vector2(-200, 440), Vector2(-500, 440)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Button/Exit_Btn:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(30, 520), Vector2(-200, 520), Vector2(-500, 520)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmjwp"]
 _data = {
-"fade_in": SubResource("Animation_lj110")
+"fade_in_and_out": SubResource("Animation_lj110"),
+"fade_out": SubResource("Animation_4j5c4")
 }
+
+[sub_resource type="CSharpScript" id="CSharpScript_34kcd"]
+script/source = "using Godot;
+using System;
+
+public partial class NewGame_Btn : TextureButton
+{
+}
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -100,12 +199,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("CSharpScript_7vg62")
 
 [node name="OpenGame" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wmjwp")
 }
-autoplay = "fade_in"
+autoplay = "fade_in_and_out"
 
 [node name="BackGround" type="CanvasLayer" parent="."]
 
@@ -157,6 +257,7 @@ offset_bottom = 506.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("6_g6lvq")
 texture_hover = ExtResource("7_qgylm")
+script = SubResource("CSharpScript_34kcd")
 
 [node name="LoadGame_Btn" type="TextureButton" parent="Button"]
 offset_left = -500.0
@@ -184,3 +285,5 @@ offset_bottom = 778.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("10_81rp5")
 texture_hover = ExtResource("11_bgam0")
+
+[connection signal="pressed" from="Button/NewGame_Btn" to="." method="onNewGameBtnPressed"]

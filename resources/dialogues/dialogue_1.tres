@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="DialogueGroup" load_steps=10 format=3 uid="uid://0n1gq07ewuyf"]
+
+[ext_resource type="Script" path="res://scenes/dialogue/dialogue.gd" id="1_0qcui"]
+[ext_resource type="Texture2D" uid="uid://gvcm1l0u2ksk" path="res://picture/face-1.jpg" id="1_o1qnh"]
+[ext_resource type="Script" path="res://scenes/dialogue/dialogue_group.gd" id="1_u6eid"]
+[ext_resource type="Texture2D" uid="uid://dhwa7dude5e60" path="res://picture/face-2.png" id="3_8rslk"]
+
+[sub_resource type="Resource" id="Resource_m4o6f"]
+script = ExtResource("1_0qcui")
+char_name = "？？？"
+text = "（原文件）“（请注意此资料阅完即毁）在此补充命令，请注意，我们可以通过安心言，来获得学术界内部的一些情报，注意方式方法，切莫急功近利”"
+face = ExtResource("1_o1qnh")
+
+[sub_resource type="Resource" id="Resource_ha8jl"]
+script = ExtResource("1_0qcui")
+char_name = "？？？"
+text = "（内部资料）此处汇总为“安心言钟江—春晖思想汇报”（也是未来为SGPLR中的对于学术利益集团的剿灭提供了一个契机）"
+face = ExtResource("1_o1qnh")
+
+[sub_resource type="Resource" id="Resource_41qod"]
+script = ExtResource("1_0qcui")
+char_name = "？？？"
+text = "S……GPLR?"
+face = ExtResource("3_8rslk")
+
+[sub_resource type="Resource" id="Resource_aifww"]
+script = ExtResource("1_0qcui")
+char_name = "？？？"
+text = "The second great proletarian Intellectual Revolution"
+face = ExtResource("1_o1qnh")
+
+[sub_resource type="Resource" id="Resource_0fg58"]
+script = ExtResource("1_0qcui")
+char_name = "？？？"
+text = "更正一下是SGPIR"
+face = ExtResource("1_o1qnh")
+
+[resource]
+script = ExtResource("1_u6eid")
+dialogue_list = Array[ExtResource("1_0qcui")]([SubResource("Resource_m4o6f"), SubResource("Resource_ha8jl"), SubResource("Resource_41qod"), SubResource("Resource_aifww"), SubResource("Resource_0fg58")])

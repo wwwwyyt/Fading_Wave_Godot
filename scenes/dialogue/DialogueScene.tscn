@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c60jl8oys7x60"]
+
+[ext_resource type="Texture2D" uid="uid://gvcm1l0u2ksk" path="res://picture/face-1.jpg" id="1_2n28l"]
+[ext_resource type="Script" path="res://scenes/dialogue/dialogue_manager.gd" id="1_4h8uu"]
+[ext_resource type="Resource" uid="uid://0n1gq07ewuyf" path="res://resources/dialogues/dialogue_1.tres" id="2_vqfv1"]
+
+[node name="DialogueManager" type="Control" node_paths=PackedStringArray("face", "char_name", "text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4h8uu")
+face = NodePath("HBoxContainer/Face")
+char_name = NodePath("HBoxContainer/Panel/MarginContainer/VBoxContainer/Name")
+text = NodePath("HBoxContainer/Panel/MarginContainer/VBoxContainer/Text")
+main_dialogue = ExtResource("2_vqfv1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 750.0
+offset_right = 1200.0
+offset_bottom = 900.0
+
+[node name="Face" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("1_2n28l")
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+layout_mode = 0
+offset_right = 990.0
+offset_bottom = 116.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "姓名"
+
+[node name="Text" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(950, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+autowrap_mode = 3
+
+[connection signal="gui_input" from="HBoxContainer/Panel" to="." method="_on_click"]

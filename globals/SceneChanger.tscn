@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxjytbi2bpooa"]
+
+[ext_resource type="Script" path="res://globals/SceneChanger.cs" id="1_ixfqn"]
+
+[node name="SceneChanger" type="Node"]
+script = ExtResource("1_ixfqn")

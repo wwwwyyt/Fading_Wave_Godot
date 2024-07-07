@@ -11,14 +11,23 @@ config_version=5
 [application]
 
 config/name="Fading_Wave"
-run/main_scene="res://title.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+run/main_scene="res://scenes/gui/StartMenuScene.tscn"
+config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneChanger="*res://globals/SceneChanger.tscn"
+Game="*res://globals/Game.cs"
 
 [display]
 
 window/size/viewport_width=1200
 window/size/viewport_height=900
+window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -29,6 +38,11 @@ project/assembly_name="Fading_Wave"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

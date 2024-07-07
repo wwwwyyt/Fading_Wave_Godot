@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dxulfkjc48f7o"]
+
+[ext_resource type="Texture2D" uid="uid://cag3recuje5dd" path="res://picture/subway-1.jpg" id="1_ltu8p"]
+[ext_resource type="Texture2D" uid="uid://djhhau60fvyk6" path="res://picture/subway-2.jpg" id="2_v2lyg"]
+[ext_resource type="Texture2D" uid="uid://c4m61vjistx0a" path="res://picture/subway-3.jpg" id="3_tigg8"]
+[ext_resource type="Script" path="res://scenes/gui/BackgroundImage.cs" id="4_rcjmv"]
+
+[resource]
+script = ExtResource("4_rcjmv")
+Images = Array[Texture]([ExtResource("1_ltu8p"), ExtResource("2_v2lyg"), ExtResource("3_tigg8")])
